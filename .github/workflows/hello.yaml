@@ -1,4 +1,4 @@
-name: say hello
+name: Hello World!
 
 on:
   push:
@@ -12,3 +12,11 @@ jobs:
       - name: Say hello
         run: |
           echo "Hello World!"
+    steps:
+      - name: Run date
+        run: |
+          date
+    steps:
+      - name: Run ls -l
+        run: |
+          ls -l
