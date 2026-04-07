@@ -1,6 +1,6 @@
 #!/bin/bash
 
 echo "Build script"
-npm build
+npm run build
 
 # add the commands here
