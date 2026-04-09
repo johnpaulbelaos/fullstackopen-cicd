@@ -42,7 +42,7 @@ jobs:
           description: |
             Commit: `${{ github.sha }}`
             Message: `${{ github.event.head_commit.message }}`
-            Author: `${{ github.actor }}`
+            Author: jpb
       - uses: sarisia/actions-status-discord@v1
         name: Notify failure
         if: ${{ (github.event_name == 'push') && (!contains(github.event.head_commit.message, '#skip')) && failure() }}
@@ -53,11 +53,9 @@ jobs:
           title: "Failure details"
           color: 0xff0000
           description: |
-            Repository: `${{ github.repository }}`
-            Branch: `${{ github.base_ref }}`
             Commit: `${{ github.sha }}`
             Message: `${{ github.event.head_commit.message }}`
-            Author: `${{ github.actor }}`
+            Author: jpb
             Workflow: Deployment pipeline
             Job: simple_deployment_pipeline
   tag_release:
