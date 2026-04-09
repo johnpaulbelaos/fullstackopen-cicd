@@ -16,7 +16,6 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: '24'
-      - uses: sarisia/actions-status-discord@v1
       - name: Install dependencies 
         run: npm install  
       - name: Check style        
@@ -32,6 +31,7 @@ jobs:
       - name: Trigger deployment
         if: ${{ (github.event_name == 'push') && (!contains(github.event.head_commit.message, '#skip')) }}
         run: curl ${{ secrets.RENDER_DEPLOY_HOOK }}
+      - uses: sarisia/actions-status-discord@v1
       - name: Notify success
         if: ${{ (github.event_name == 'push') && (!contains(github.event.head_commit.message, '#skip')) && success() }}
         with:
